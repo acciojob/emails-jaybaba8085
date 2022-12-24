@@ -26,19 +26,46 @@ public class Email {
         // 4. It contains at least one digit
         // 5. It contains at least one special character. Any character apart from alphabets and digits is a special character
         if(oldPassword.equals(this.password)){
-            if(newPassword.length() >= 8 &&
-                    newPassword.matches(".*[A-Z].*") &&
-                    newPassword.matches(".*[a-z].*") &&
-                    newPassword.matches(".*[0-9].*") &&
-                    newPassword.matches(".*[^A-Za-z0-9].*")){
-                this.password = newPassword;
-                //System.out.println("Password changed successfully.");
+            if(newPassword.length()>=8){
+                Boolean UCL = false;
+                Boolean LCL = false;
+                Boolean digit = false;
+                Boolean special = false;
+                for(int i=0; i<newPassword.length(); i++){
+                    char ch = newPassword.charAt(i);
+                    if(Character.isUpperCase(ch)){
+                        UCL = true;
+                    }
+                    else if(Character.isLowerCase(ch)){
+                        LCL = true;
+                    }
+                    else if(Character.isDigit(ch)){
+                        digit = true;
+                    }
+                    else{
+                        special = true;
+                    }
+                }
+                if(UCL==true && LCL==true && digit==true && special==true){
+                    this.password = newPassword;
+                }
             }
-            //else {
+        }
+//        if(oldPassword.equals(this.password)){
+//            if(newPassword.length() >= 8 &&
+//                    newPassword.matches(".*[A-Z].*") &&
+//                    newPassword.matches(".*[a-z].*") &&
+//                    newPassword.matches(".*[0-9].*") &&
+//                    newPassword.matches(".*[^A-Za-z0-9].*")) {
+//                this.password = newPassword;
+//            }}
+             //   System.out.println("Password changed successfully.");
+           // }
+//            else {
 //                System.out.println("The new password does not meet the required conditions.");
 //            }
 //        } else {
 //            System.out.println("The old password is incorrect.");
-        }
+      //  }
     }
 }
