@@ -21,6 +21,7 @@ public class Gmail extends Email {
     }
     ArrayList<Mail> inbox;
     ArrayList<Mail> trash;
+
     public Gmail(String emailId, int inboxCapacity) {
         super(emailId);
         this.inboxCapacity=inboxCapacity;
