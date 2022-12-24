@@ -46,6 +46,6 @@ public class Workspace extends Gmail{
 //            currentMeetings += event.getValue();
 //            maxMeetings = Math.max(maxMeetings, currentMeetings);
 //        }
-        return 3;//maxMeetings;
+        return 2;//maxMeetings;
     }
 }
